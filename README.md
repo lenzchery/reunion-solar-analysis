@@ -39,6 +39,7 @@ This analysis forms the spatial backbone of the thesis: it makes it possible to 
 ```
 reunion-solar-analysis/
 │   .gitignore
+│   CITATION.cff
 │   LICENCE
 │   README.md
 │   requirements.txt
