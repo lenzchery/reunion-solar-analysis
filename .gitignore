@@ -1,0 +1,87 @@
+# =============================================================================
+# .gitignore — reunion-solar-analysis
+# =============================================================================
+# This repository follows a fully automated, reproducible pipeline: scripts
+# 01 -> 03 regenerate everything in outputs/ from the data in data/. Most
+# generated and input artifacts are therefore INTENTIONALLY VERSION-CONTROLLED
+# rather than ignored — with one licensing exception detailed below.
+#
+#   - data/raster/    TRACKED    GHI raster, Global Solar Atlas 3.0
+#                                (World Bank Group / Solargis) — CC BY 4.0,
+#                                redistribution explicitly permitted with
+#                                attribution.
+#
+#   - data/vectors/   NOT TRACKED for the shapefile itself. The commune
+#                                boundary layer (REU_adm2.shp and sidecars)
+#                                is GADM v2.8 (Hijmans, 2015; UC Berkeley
+#                                Museum of Vertebrate Zoology / International
+#                                Rice Research Institute; Stanford Digital
+#                                Repository, https://purl.stanford.edu/pn417fx4462).
+#                                Its license states: "Redistribution, or
+#                                commercial use is not allowed without prior
+#                                permission." Committing this file to a public
+#                                repository would constitute redistribution.
+#                                Only data/vectors/README.md (download
+#                                instructions + citation) is tracked; each
+#                                user retrieves the shapefile independently
+#                                under the dataset's own academic-use terms.
+#
+#   - outputs/maps/   TRACKED    Maps produced by scripts 02 and 03.
+#   - outputs/tables/ TRACKED    Summary statistics (CSV) produced by
+#                                scripts 02 and 03.
+#
+# outputs/ and data/raster/ serve as evidence that the pipeline (scripts/01
+# -> 03) reproduces the results reported in the README and the thesis.
+# =============================================================================
+
+# --- Non-redistributable vector data (GADM v2.8 license restriction) -------
+# See data/vectors/README.md for the official download link.
+data/vectors/REU_adm2.*
+!data/vectors/README.md
+
+# --- Python virtual environments --------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# --- Python caches and compiled files ---------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Jupyter / Spyder --------------------------------------------------------
+.ipynb_checkpoints/
+.spyproject/
+.spyderworkspace
+
+# --- IDE / editors -----------------------------------------------------------
+.vscode/
+.idea/
+
+# --- OS-specific files --------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Temporary files and logs -------------------------------------------------
+*.log
+*.tmp
+*.bak
+
+# Safety net: 03_optimal_zones.py now vectorizes the thresholded raster
+# directly in memory (rasterio.features.shapes on the numpy array + its
+# affine transform), so no intermediate .tif is written to disk anymore.
+# Rule kept in case a future change reintroduces a temporary raster file.
+ghi_zone_temp.tif
+outputs/maps/ghi_zone_temp.tif
+
+# --- Credentials / secrets (security) ------------------------------------------
+.env
+*.pem
+secrets.yaml
