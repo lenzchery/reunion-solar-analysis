@@ -216,7 +216,7 @@ python scripts/03_optimal_zones.py
 - **405.4 km², i.e. 16.1% of the territory**, has a GHI ≥ 5 kWh/m²/day.
 - Urbanized coastal areas (Saint-Denis, Saint-Paul, Saint-Pierre, Sainte-Marie, Saint-André) concentrate the optimal solar potential — precisely where energy demand is highest.
 
-> **Methodological note:** the island boundary used for clipping is derived by dissolving the communal layer (`REU_adm2.shp`) into a single polygon, rather than using a separate region-level boundary file. This slightly changes the traced coastline compared to an earlier version of this analysis (which reported 397.4 km² / 15.9%), since the optimal-GHI zone is concentrated right along the coast, where small differences in boundary tracing have a proportionally larger effect. The island-wide total area implied by this boundary (~2,513 km²) is close to the officially reported area of Reunion Island (2,512 km², IGN/INSEE).
+> **Methodological note:** the island boundary used for clipping is derived by dissolving the communal layer (`REU_adm2.shp`) into a single polygon, rather than using a separate region-level boundary file. This slightly changes the traced coastline compared to an earlier version of this analysis (which reported 397.4 km² / 15.9%), since the optimal-GHI zone is concentrated right along the coast, where small differences in boundary tracing have a proportionally larger effect. The island-wide total area implied by this boundary (~2,513 km²) is consistent with the official area reported for Réunion Island (~2,512 km²; IGN/INSEE).
 
 ---
 
