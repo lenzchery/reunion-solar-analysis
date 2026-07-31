@@ -1,6 +1,9 @@
 cff-version: 1.2.0
+
 message: "If you use this repository, please cite it using the metadata below."
+
 title: "Reunion Solar Analysis: Spatial Assessment of Global Horizontal Irradiance (GHI) for Solar Cooking Applications"
+
 type: software
 
 authors:
@@ -8,11 +11,16 @@ authors:
     given-names: "Lenz Arly"
 
 repository-code: "https://github.com/lenzchery/reunion-solar-analysis"
+
 url: "https://github.com/lenzchery/reunion-solar-analysis"
+
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21708005"
 
 license: "MIT"
 
-version: "1.0.0"
+version: "1.0.2"
 
 date-released: "2026-07-30"
 
@@ -26,14 +34,13 @@ keywords:
   - Reunion Island
   - GHI
   - Solar Cooking
+  - Reproducible Research
 
 abstract: >
   This repository contains a fully reproducible geospatial analysis of
   Global Horizontal Irradiance (GHI) across Reunion Island, including
   raster preprocessing, spatial distribution mapping and extraction of
-  optimal solar zones for solar cooking applications. The repository
-  accompanies the author's Master's thesis completed at Université
-  Paris-Saclay / AgroParisTech.
+  optimal solar zones for solar cooking applications. This software provides a reproducible Python workflow for analysing Global Horizontal Irradiance (GHI) over Reunion Island, including raster preprocessing, spatial mapping and extraction of high solar-potential zones. It was developed as part of a Master's thesis at Université Paris-Saclay.
 
 preferred-citation:
   type: software
@@ -42,5 +49,6 @@ preferred-citation:
       given-names: "Lenz Arly"
   title: "Reunion Solar Analysis: Spatial Assessment of Global Horizontal Irradiance (GHI) for Solar Cooking Applications"
   year: 2026
-  version: "1.0.0"
+  version: "1.0.2"
+  doi: "10.5281/zenodo.21708005"
   url: "https://github.com/lenzchery/reunion-solar-analysis"

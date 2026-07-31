@@ -18,7 +18,7 @@ Inputs:
 
 Outputs:
     outputs/maps/Optimal_Solar_Zones.png
-    outputs/maps/optimal_Zones.gpkg
+    outputs/maps/optimal_zones.gpkg
     outputs/maps/commune_centroids.gpkg
     outputs/tables/optimal_solar_zones_area.csv
 

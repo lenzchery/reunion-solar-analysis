@@ -1,24 +1,71 @@
 # 🌞 Reunion Solar Analysis
 
-Spatial analysis of the solar potential (Global Horizontal Irradiance — GHI) of Reunion Island, based on **Global Solar Atlas** raster data, using Python (`rioxarray`, `geopandas`, `rasterio`).
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21708005.svg)](https://doi.org/10.5281/zenodo.21708005)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
+![Miniconda](https://img.shields.io/badge/Environment-Miniconda-44A833.svg?logo=anaconda)
 
-This repository is part of the work carried out for the **Master 2 Sustainable Agricultural Development — Food Security for Development** thesis (Université Paris-Saclay / AgroParisTech, Faculté Jean Monnet, 2024-2025):
+**Spatial analysis of Global Horizontal Irradiance (GHI) and identification of optimal solar zones across Reunion Island using Python geospatial workflows.**
 
-> **Chéry, L. A. (2025).** *Utilisation de l'énergie solaire pour la cuisson du riz à La Réunion : évaluation du potentiel solaire à partir d'expériences de cuisson et de données satellitaires* [Using solar energy to cook rice in Réunion Island: assessing solar potential from cooking experiments and satellite data]. Master's thesis, Université Paris-Saclay. Supervisor: Agnès Ricroch (Université Paris-Saclay / AgroParisTech).
+This repository provides a fully reproducible geospatial workflow for analysing the spatial distribution of solar potential over Reunion Island using **Global Solar Atlas** raster data and Python open-source geospatial libraries (`rioxarray`, `rasterio`, `geopandas`, `shapely`).
 
-> Note: this repository covers only the **mapping and raster-analysis component** of the thesis (island-wide spatial analysis of GHI). The scripts related to the cooking experiments (solar oven, PostgreSQL database) and the generic geomatics utilities are hosted in separate repositories (`solar-cooking-analysis` and `python-geomatics-utils`).
+---
+
+## 📚 Scientific context
+
+This repository is part of the research work conducted for the Master's thesis:
+
+> **Chéry, L. A. (2025).**  
+> *Utilisation de l'énergie solaire pour la cuisson du riz à La Réunion : évaluation du potentiel solaire à partir d'expériences de cuisson et de données satellitaires.*  
+> Master's thesis, Université Paris-Saclay.  
+> Supervisor: Agnès Ricroch.
+
+The thesis investigates the potential of solar energy for rice cooking applications in Reunion Island by combining:
+
+- experimental solar cooking measurements;
+- solar resource assessment based on Global Solar Atlas data;
+- spatial analysis of solar potential.
+
+This repository focuses exclusively on the **spatial and remote sensing component** of the research.
+
+The experimental cooking workflow, PostgreSQL database and generic geomatics utilities are maintained in separate repositories.
+
+---
+
+## ⭐ Highlights
+
+- 🛰️ Processing of Global Horizontal Irradiance (GHI) data from Global Solar Atlas
+- 🗺️ Fully reproducible Python geospatial workflow
+- 📡 Raster preprocessing using `rioxarray` and `rasterio`
+- 🌋 Island-scale solar resource mapping
+- 📊 Extraction and quantification of high solar potential zones
+- 🔬 Designed for reproducible scientific research
 
 ---
 
 ## 📍 Context
 
-Reunion Island, a young volcanic island in the tropical south-western Indian Ocean (21°07' S, 55°32' E), enjoys abundant but highly contrasted sunshine depending on relief: heavily exposed coastal areas versus cloudier highlands ("Hauts") and cirques. Facing high domestic energy consumption — largely driven by rice cooking, a staple food consumed ten times more than in mainland France — and a still significant dependence on imported fossil fuels, a fine-grained knowledge of the local solar resource is a key step to inform the island's energy-transition policies (PRERURE, GERRI).
+Reunion Island is a young volcanic island located in the south-western Indian Ocean (21°07' S, 55°32' E).
+
+Its tropical climate provides a significant solar resource, but strong spatial contrasts exist due to topography:
+
+- highly exposed coastal areas;
+- humid highlands;
+- mountainous cirques.
+
+Because Reunion Island remains strongly dependent on imported fossil fuels and faces significant domestic energy consumption, particularly for cooking practices, understanding the spatial distribution of solar resources is an important step toward evaluating renewable-energy solutions.
+
+This analysis contributes to the assessment of solar cooking feasibility by identifying areas where theoretical solar potential is highest and where deployment could be relevant.
 
 <p align="center">
-  <img src="figures/Reunion_Island_Localisation.png" alt="Location map of Reunion Island within the Mascarene archipelago" width="600">
+  <img src="figures/Reunion_Island_Localisation.png" 
+       alt="Location map of Reunion Island within the Mascarene archipelago" 
+       width="600">
 </p>
 
-<p align="center"><em>Figure — Location of Reunion Island within the Mascarene archipelago (Indian Ocean, south-west of Madagascar).</em></p>
+<p align="center">
+<em>Location of Reunion Island within the Mascarene archipelago (Indian Ocean).</em>
+</p>
 
 ---
 
@@ -40,7 +87,7 @@ This analysis forms the spatial backbone of the thesis: it makes it possible to 
 reunion-solar-analysis/
 │   .gitignore
 │   CITATION.cff
-│   LICENCE
+│   LICENSE
 │   README.md
 │   requirements.txt
 │   reunion_solar.yml
@@ -78,10 +125,10 @@ reunion-solar-analysis/
 
 ## 🛰️ Data used
 
-| Source | Description | Resolution / Period | Access |
-|---|---|---|---|
-| **Global Solar Atlas** (World Bank) | Average daily GHI raster | ~250 m, 1999-2018 average | [globalsolaratlas.info/download/reunion](https://globalsolaratlas.info/download/reunion) |
-| **GADM v2.8** (Hijmans, 2015, via Stanford Digital Repository) | Communal administrative boundaries (island boundary obtained by dissolving communes) | Vector | [purl.stanford.edu/pn417fx4462](https://purl.stanford.edu/pn417fx4462) |
+| Source | Description | Format | Resolution / Period | Access |
+|--------|-------------|--------|---------------------|--------|
+| **Global Solar Atlas 3.0** (World Bank Group / Solargis) | Average daily Global Horizontal Irradiance (GHI) | Raster (GeoTIFF) | ~250 m, 1999-2018 average | Available from the [Global Solar Atlas](https://globalsolaratlas.info/download/reunion) under **CC BY 4.0** |
+| **GADM v2.8** (Hijmans, 2015) | Second-level administrative boundaries (communes) of Reunion Island | Vector (Shapefile) | Administrative level 2 | Available from the [Stanford Digital Repository](https://purl.stanford.edu/pn417fx4462) for academic and non-commercial use |
 
 ---
 
@@ -95,7 +142,7 @@ The Global Horizontal Irradiance (GHI) data come from **Global Solar Atlas 3.0**
 > *Source: Global Solar Atlas 3.0, World Bank Group, 2024. Data provider: Solargis. License: CC BY 4.0.*
 > [https://globalsolaratlas.info](https://globalsolaratlas.info)
 
-In accordance with this license, the GHI raster is redistributed, modified, and included in this academic work **provided the source is credited**, which this repository does. Because the file is lightweight, **`GHI_Reunion.tif` is versioned directly in `data/raster/`** for reproducibility — no separate download step is required.
+In accordance with this license, the GHI raster is redistributed, modified, and included in this academic work **provided the source is credited**, which this repository does. Because the file is lightweight, **`GHI_Reunion.tif` is versioned directly in `data/raster/`** for reproducibility - no separate download step is required.
 
 ### Administrative boundaries (GADM v2.8, via Stanford Digital Repository)
 
@@ -133,9 +180,11 @@ The commune-level boundaries used to clip the raster and label the maps come fro
 git clone https://github.com/lenzchery/reunion-solar-analysis.git
 cd reunion-solar-analysis
 
-conda create -n reunion_solar python=3.11
+conda create -n reunion_solar python=3.11.15
 conda activate reunion_solar
-conda install -c conda-forge geopandas rasterio rioxarray xarray gdal
+
+conda install -c conda-forge \
+    geopandas rasterio rioxarray xarray gdal
 
 pip install -r requirements.txt
 ```
@@ -173,20 +222,26 @@ python scripts/03_optimal_zones.py
 
 ## 📄 License
 
-See the [LICENCE](LICENCE) file (MIT for the code; datasets remain under their original licenses — see "Data and Licenses" above).
+See the [LICENSE](LICENSE) file (MIT for the code; datasets remain under their original licenses — see "Data and Licenses" above).
 
 ---
 ## 📖 Citation
 
-If you use this repository in academic work, please cite it using the information provided in the `CITATION.cff` file.
+If you use this repository in academic work, please cite the software using the `CITATION.cff` metadata file or the DOI below:
+
+> **Chéry, L. A. (2026).** *Reunion Solar Analysis: Spatial Assessment of Global Horizontal Irradiance (GHI) for Solar Cooking Applications* (Version 1.0.2) [Computer software]. Zenodo.  
+> https://doi.org/10.5281/zenodo.21708005
 
 Please also cite the associated Master's thesis when referring to the scientific results presented in this repository.
 
 ## ✍️ Author
 
-**Lenz Arly Chéry** — Master 2 Sustainable Agricultural Development, Food Security for Development, Université Paris-Saclay / AgroParisTech (2024-2025).
-Supervisor: Agnès Ricroch.
-GitHub: [github.com/lenzchery](https://github.com/lenzchery)
+**Lenz Arly Chéry**
+
+Master 2 Développement Agricole Durable - parcours Food Security for Development  
+Université Paris-Saclay (2024–2025)
+
+GitHub: https://github.com/lenzchery
 
 ---
 

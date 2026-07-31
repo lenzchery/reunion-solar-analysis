@@ -1,13 +1,18 @@
 # ==========================================================
 # Project Requirements - GHI Mapping (Reunion Island)
-# Author: Lenz Arly Chery
-# Python >= 3.11
+# Author: Lenz Arly Chéry
+# Python >= 3.11.15
 #
 # Required libraries for:
 # - raster data processing,
 # - vector data analysis,
 # - geospatial operations,
 # - cartographic visualization.
+#
+# Versions pinned to match the tested Conda environment
+# (reunion_solar.yml) exactly, so that `pip install -r
+# requirements.txt` reproduces the same environment as
+# `conda env create -f reunion_solar.yml`.
 # ==========================================================
 
 numpy==2.4.6
@@ -16,11 +21,18 @@ matplotlib==3.10.9
 matplotlib-scalebar==0.9.0
 
 geopandas==0.14.4
-pyogrio==0.7.2
+pyogrio==0.11.1
 
 rasterio==1.4.4
 rioxarray==0.19.0
 xarray==2026.7.0
 
-pyproj==3.7.0
+pyproj==3.7.2
 shapely==2.1.2
+
+# ==========================================================
+# Note: GDAL (system dependency of rasterio/geopandas/pyogrio)
+# is not pip-installable in a reliable way on Windows. Use
+# Conda instead (see reunion_solar.yml), or install GDAL 3.11.x
+# separately before running `pip install -r requirements.txt`.
+# ==========================================================

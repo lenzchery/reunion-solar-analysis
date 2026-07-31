@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Lenz Arly Chéry
+Copyright (c) 2025-2026 Lenz Arly Chéry
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,12 +26,18 @@ Note on scope: this MIT License applies to the source code (scripts/) and
 original written content (README, documentation) of this repository only.
 
 Third-party datasets bundled in data/raster/ and data/vectors/ remain subject
-to their own original licenses (Global Solar Atlas — CC BY 4.0; IGN / DEAL
-Réunion — Licence Ouverte / Etalab 2.0). See the "Data and Licenses" section
-of the README for attribution requirements.
+to their own original licenses (Global Solar Atlas - CC BY 4.0; GADM v2.8 -
+academic and non-commercial use restrictions). See the "Data and Licenses"
+section of the README for attribution requirements.
 
 Academic citation: if you use this repository or its outputs in academic
 work, please cite:
+
+Chéry, L. A. (2026). Reunion Solar Analysis: Spatial Assessment of Global
+Horizontal Irradiance (GHI) for Solar Cooking Applications (Version 1.0.2).
+Zenodo. https://doi.org/10.5281/zenodo.21708005
+
+Associated Master's thesis:
 Chéry, L. A. (2025). Utilisation de l'énergie solaire pour la cuisson du riz
 à La Réunion : évaluation du potentiel solaire à partir d'expériences de
 cuisson et de données satellitaires. Master's thesis, Université Paris-Saclay.
