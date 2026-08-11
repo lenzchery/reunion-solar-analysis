@@ -16,13 +16,14 @@ url: "https://github.com/lenzchery/reunion-solar-analysis"
 
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.21708005"
+    value: "10.5281/zenodo.21708004"
+    description: "Concept DOI — always resolves to the latest version"
 
 license: "MIT"
 
-version: "1.0.2"
+version: "1.0.3"
 
-date-released: "2026-07-30"
+date-released: "2026-08-11"
 
 keywords:
   - GIS
@@ -49,6 +50,6 @@ preferred-citation:
       given-names: "Lenz Arly"
   title: "Reunion Solar Analysis: Spatial Assessment of Global Horizontal Irradiance (GHI) for Solar Cooking Applications"
   year: 2026
-  version: "1.0.2"
-  doi: "10.5281/zenodo.21708005"
+  version: "1.0.3"
+  doi: "10.5281/zenodo.21708004"
   url: "https://github.com/lenzchery/reunion-solar-analysis"

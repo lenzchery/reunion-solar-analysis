@@ -171,8 +171,8 @@ def plot_optimal_zones_map(
             zorder=4,
         )
 
-    ax.set_xlabel("Longitude (m)", fontsize=12, fontweight="bold", color="darkred")
-    ax.set_ylabel("Latitude (m)", fontsize=12, fontweight="bold", color="darkred")
+    ax.set_xlabel("Easting (m)", fontsize=12, fontweight="bold", color="darkred")
+    ax.set_ylabel("Northing (m)", fontsize=12, fontweight="bold", color="darkred")
     ax.tick_params(labelsize=10)
 
     ax.set_title(

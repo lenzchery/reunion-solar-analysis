@@ -70,7 +70,6 @@ def load_ghi_raster(raster_path, target_crs=TARGET_CRS):
     return raster
 
 
-
 def load_island_boundary(communes_path, target_crs=TARGET_CRS):
     """Create a single island polygon from municipal boundaries."""
 

@@ -131,8 +131,8 @@ def plot_ghi_map(raster, communes, output_png: Path):
 
     plt.colorbar(im, label="GHI (kWh/m²/day)", ax=ax)
 
-    ax.set_xlabel("Longitude (m)", fontsize=10, fontweight="bold", color="darkred")
-    ax.set_ylabel("Latitude (m)", fontsize=10, fontweight="bold", color="darkred")
+    ax.set_xlabel("Easting (m)", fontsize=10, fontweight="bold", color="darkred")
+    ax.set_ylabel("Northing (m)", fontsize=10, fontweight="bold", color="darkred")
     ax.set_title(
         "Spatial distribution of Global Horizontal Irradiance (GHI)\n"
         "Reunion Island — Daily average (1999–2018)",
